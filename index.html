@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bar Pasticceria del Corso — dal 1981</title>
+<meta name="description" content="Bar Pasticceria del Corso, Via Roma 151, Frattamaggiore. Pasticceria napoletana artigianale dal 1981: sfogliatelle, pastiera, babà, torte su ordinazione.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="frames/0001.webp">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf5ec; --paper:#fffdf8; --ink:#2b1d17; --muted:#6f5d52;
+  --wine:#7a1f2b; --wine-d:#5c1620; --gold:#b8894a; --line:#e8dccb;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1}
+h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:.4rem 0 1rem}
+.lead{color:var(--muted);max-width:560px;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.5rem;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-wine{background:var(--wine);color:#fff}.btn-wine:hover{background:var(--wine-d)}
+.btn-ghost{border:1.5px solid currentColor}
+section{padding:96px 0}
+
+/* NAV */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+header.solid{background:rgba(250,245,236,.95);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:1.45rem;font-weight:600;text-decoration:none;color:var(--wine-d);transition:color .3s}
+.logo small{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;opacity:.8;margin-top:-4px}
+header.solid .logo,header.solid .links a{color:var(--ink)}
+.links{display:flex;gap:28px;align-items:center}
+.links a{color:var(--wine-d);text-decoration:none;font-size:.9rem;font-weight:500}
+.links .btn{padding:.6rem 1.1rem;color:#fff!important}
+.burger{display:none;background:none;border:0;color:var(--wine-d);cursor:pointer}
+header.solid .burger{color:var(--ink)}
+
+/* HERO — scroll animation */
+.hero{position:relative;height:100svh;background:#e8b0aa;padding:0;overflow:hidden}
+.stage{position:relative;height:100svh;width:100%}
+#cake{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,244,238,.55) 0%,rgba(255,244,238,0) 42%);pointer-events:none}
+.step{position:absolute;left:max(20px,calc((100vw - 1160px)/2 + 20px));top:50%;transform:translateY(-50%);max-width:400px;color:var(--wine-d);opacity:0}
+.step h1{font-size:clamp(2.4rem,4.6vw,4.4rem);margin:.6rem 0 1rem}
+.step h2{font-size:clamp(2.4rem,5vw,4.2rem);margin:.6rem 0 1rem}
+.step em{font-style:italic;color:var(--wine)}
+.step p{font-size:1.05rem;color:#5a2a2c}
+.step .eyebrow{color:var(--wine)}
+.s1{opacity:1}
+.scrollhint{margin-top:1.4rem;font-size:.85rem!important;letter-spacing:.2em;text-transform:uppercase}
+.scrollhint span{display:inline-block;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:1.4rem}
+.step .btn-ghost{color:var(--wine-d)}
+.stars{display:flex;align-items:center;gap:10px;margin-top:1.6rem;font-size:.9rem}
+.stars b{color:var(--gold);letter-spacing:2px}
+.bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(122,31,43,.15)}
+.bar i{display:block;height:100%;width:100%;background:var(--wine);transform-origin:left;transform:scaleX(0)}
+@media (max-width:900px){
+  .shade{background:linear-gradient(180deg,rgba(255,244,238,.75) 0%,rgba(255,244,238,0) 38%)}
+  .step{top:max(92px,11vh);transform:none;left:20px;right:20px;max-width:none;text-align:center}
+  .step p{margin:0 auto}
+  .cta,.stars{justify-content:center}
+  .s3{top:auto;bottom:28px}
+  .s3 h2{display:none}
+}
+
+/* STORIA */
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.story-img{aspect-ratio:4/5;border-radius:220px 220px 16px 16px;background:linear-gradient(180deg,#e9d6bd,#c9a97f);position:relative;overflow:hidden}
+.story-img svg{position:absolute;inset:auto 0 0;width:100%}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2rem}
+.fact{border-top:1px solid var(--line);padding-top:12px}
+.fact b{font-family:var(--serif);font-size:2.2rem;color:var(--wine);display:block;line-height:1}
+.fact span{font-size:.85rem;color:var(--muted)}
+
+/* SPECIALITA */
+.specs{background:var(--paper)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.card{background:var(--cream);border-radius:16px;overflow:hidden;border:1px solid var(--line);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -20px rgba(92,22,32,.35)}
+.card .ph{aspect-ratio:1;display:grid;place-items:center}
+.card .ph svg{width:62%}
+.card .tx{padding:16px 18px 20px}
+.card h3{font-size:1.4rem}
+.card p{font-size:.88rem;color:var(--muted)}
+
+/* MENU */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:32px 0 24px}
+.tab{padding:.55rem 1.1rem;border-radius:999px;border:1.5px solid var(--line);background:none;font:500 .9rem var(--sans);cursor:pointer;color:var(--ink)}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.menu-list{display:none;columns:2;column-gap:56px}
+.menu-list.on{display:block}
+.row{display:flex;align-items:baseline;gap:10px;padding:12px 0;break-inside:avoid}
+.row span{flex:1;border-bottom:1px dotted #cbb9a4;transform:translateY(-4px)}
+.row b{font-family:var(--serif);font-size:1.25rem;font-weight:600}
+.row i{font-style:normal;font-weight:600;color:var(--wine)}
+.note{font-size:.8rem;color:var(--muted);margin-top:18px}
+
+/* TORTE */
+.cakes{background:var(--ink);color:#fff}
+.cakes .lead{color:#cdbfb4}
+.cake-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.cake{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .2s}
+.cake:hover{background:rgba(255,255,255,.05)}
+.cake h3{font-size:1.45rem}
+.cake small{color:#cdbfb4}
+.cake .pr{font-family:var(--serif);font-size:1.4rem;color:#e9c48a;white-space:nowrap}
+.order{margin-top:40px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.order .btn-wine{background:#25d366;color:#0b3d1f}
+
+/* RICORRENZE */
+.season{background:linear-gradient(120deg,#f3e3cf,#faf5ec)}
+.season .box{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:48px}
+.pill{display:inline-block;background:var(--wine);color:#fff;border-radius:999px;padding:.3rem .8rem;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+
+/* RECENSIONI */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.rev{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px}
+.rev q{font-family:var(--serif);font-size:1.35rem;line-height:1.35;display:block;margin:10px 0 14px}
+.rev b{color:var(--gold);letter-spacing:2px}
+.rev small{color:var(--muted)}
+
+/* DOVE */
+.where .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.map{border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);background:#e9dfd1}
+.map iframe{width:100%;height:100%;min-height:360px;border:0}
+.info{display:grid;gap:22px;margin-top:28px}
+.info div{display:flex;gap:14px}
+.info svg{flex:none;color:var(--wine)}
+.info b{display:block}
+.info span{color:var(--muted);font-size:.95rem}
+
+footer{background:#1d1411;color:#b7a89c;padding:40px 0;font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#e9c48a;text-decoration:none}
+
+.fab{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  section{padding:72px 0}
+  .links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--cream);padding:20px;gap:18px;box-shadow:0 10px 20px rgba(0,0,0,.08)}
+  .links.open{display:flex}
+  .links a{color:var(--ink)}
+  .burger{display:block}
+  .hero .wrap,.story .wrap,.where .wrap,.season .box{grid-template-columns:1fr}
+  .hero-art{max-width:340px;margin:0 auto}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .cake-grid,.rev-grid{grid-template-columns:1fr}
+  .menu-list{columns:1}
+  .season .box{padding:28px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#">Bar Pasticceria del Corso<small>Frattamaggiore · dal 1981</small></a>
+    <nav class="links" id="links">
+      <a href="#storia">Storia</a>
+      <a href="#specialita">Specialità</a>
+      <a href="#menu">Menu</a>
+      <a href="#torte">Torte</a>
+      <a href="#dove">Dove siamo</a>
+      <a href="https://www.instagram.com/barpasticceria_del_corso/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      <a class="btn btn-wine" href="https://api.whatsapp.com/send?phone=390818806045&text=Ciao!%20Vorrei%20ordinare%20una%20torta" target="_blank" rel="noopener">Ordina</a>
+    </nav>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('open')">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO: scroll animation (frames/0001-0327.webp) -->
+<section class="hero" id="hero">
+  <div class="stage">
+    <canvas id="cake" aria-label="Una torta prende forma: crema, glassa a specchio e la scritta Bar del Corso"></canvas>
+    <div class="shade"></div>
+    <div class="step s1">
+      <div class="eyebrow">Via Roma 151 · Frattamaggiore</div>
+      <h1>La dolcezza di Napoli,<br><em>con amore</em> dal 1981.</h1>
+      <p class="scrollhint">Scorri <span>↓</span></p>
+    </div>
+    <div class="step s2">
+      <div class="eyebrow">Glassa a specchio</div>
+      <h2>Fatte a mano,<br>ogni mattina.</h2>
+      <p>Tradizione, studio e ricerca in ogni strato.</p>
+    </div>
+    <div class="step s3">
+      <div class="eyebrow">Su ordinazione</div>
+      <h2>La tua torta,<br><em>con il tuo nome.</em></h2>
+      <div class="cta">
+        <a class="btn btn-wine" href="#torte">Ordina una torta</a>
+        <a class="btn btn-ghost" href="#dove">Vieni a trovarci</a>
+      </div>
+      <div class="stars"><b>★★★★★</b> 4,4 su Google · oltre 760 recensioni</div>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+  </div>
+</section>
+
+<!-- STORIA -->
+<section class="story" id="storia">
+  <div class="wrap">
+    <div class="story-img reveal">
+      <svg viewBox="0 0 400 200" aria-hidden="true"><path d="M0 120q100-60 200 0t200 0v80H0z" fill="#7a1f2b" opacity=".85"/><path d="M0 150q100-40 200 0t200 0v50H0z" fill="#5c1620"/></svg>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">La nostra storia</div>
+      <h2>Dal 1981 sul Corso di Frattamaggiore.</h2>
+      <p class="lead">Da oltre quarant'anni prepariamo ogni giorno dolci freschi con le ricette della tradizione napoletana, e le reinterpretiamo con tecnica e ingredienti scelti. Il bar apre all'alba: caffè, cornetti caldi, colazioni. La sera, aperitivo.</p>
+      <div class="facts">
+        <div class="fact"><b>1981</b><span>anno di apertura</span></div>
+        <div class="fact"><b>05:00</b><span>apriamo all'alba</span></div>
+        <div class="fact"><b>4,4★</b><span>760+ recensioni</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALITA -->
+<section class="specs" id="specialita">
+  <div class="wrap">
+    <div class="eyebrow">Le specialità</div>
+    <h2>Fatte qui, ogni mattina.</h2>
+    <div class="grid">
+      <article class="card reveal"><div class="ph" style="background:#f1dfc5"><svg viewBox="0 0 100 100"><path d="M10 70Q50 5 90 70Q50 90 10 70z" fill="#d9a35f"/><path d="M22 66Q50 20 78 66M32 68Q50 35 68 68M42 70Q50 50 58 70" stroke="#b27a3a" stroke-width="2" fill="none"/></svg></div><div class="tx"><h3>Sfogliatella</h3><p>Riccia e frolla, sfornata calda.</p></div></article>
+      <article class="card reveal"><div class="ph" style="background:#efd9c9"><svg viewBox="0 0 100 100"><ellipse cx="50" cy="62" rx="42" ry="14" fill="#c98d45"/><rect x="8" y="46" width="84" height="16" fill="#e8c27f"/><ellipse cx="50" cy="46" rx="42" ry="14" fill="#f2d49a"/><path d="M20 42l60 8M20 50l60-8M35 36l30 20M65 36L35 56" stroke="#c98d45" stroke-width="3"/></svg></div><div class="tx"><h3>Pastiera</h3><p>Grano, ricotta e fiori d'arancio.</p></div></article>
+      <article class="card reveal"><div class="ph" style="background:#f3e2c8"><svg viewBox="0 0 100 100"><path d="M30 80h40l-4-38a16 16 0 0 0-32 0z" fill="#c07b2e"/><ellipse cx="50" cy="38" rx="17" ry="12" fill="#d9974a"/><ellipse cx="50" cy="34" rx="8" ry="3" fill="#fff" opacity=".6"/></svg></div><div class="tx"><h3>Babà</h3><p>Al rum, anche in torta.</p></div></article>
+      <article class="card reveal"><div class="ph" style="background:#ecd6d3"><svg viewBox="0 0 100 100"><rect x="18" y="45" width="64" height="35" rx="4" fill="#5b3321"/><rect x="18" y="45" width="64" height="8" fill="#8fbf5a"/><circle cx="35" cy="42" r="5" fill="#c2182f"/><circle cx="65" cy="42" r="5" fill="#c2182f"/><path d="M18 62h64" stroke="#f4e6d2" stroke-width="3"/></svg></div><div class="tx"><h3>Monoporzioni</h3><p>Pasticceria moderna, da 4 €.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- MENU DIGITALE -->
+<section id="menu">
+  <div class="wrap">
+    <div class="eyebrow">Menu digitale</div>
+    <h2>Il nostro menu, sempre aggiornato.</h2>
+    <p class="lead">Niente PDF da scaricare: si consulta da telefono e lo aggiorniamo noi, in tempo reale.</p>
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-t="bar">Caffetteria</button>
+      <button class="tab" data-t="col">Colazione</button>
+      <button class="tab" data-t="pas">Pasticceria</button>
+      <button class="tab" data-t="ape">Aperitivo</button>
+    </div>
+    <div class="menu-list on" id="bar">
+      <div class="row"><b>Caffè espresso</b><span></span><i>1,30 €</i></div>
+      <div class="row"><b>Cappuccino</b><span></span><i>1,80 €</i></div>
+      <div class="row"><b>Caffè Special Baileys</b><span></span><i>2,50 €</i></div>
+      <div class="row"><b>Tè e infusi</b><span></span><i>—</i></div>
+    </div>
+    <div class="menu-list" id="col">
+      <div class="row"><b>Cornetto brioche crema e amarena</b><span></span><i>1,50 €</i></div>
+      <div class="row"><b>Paste da colazione</b><span></span><i>1,40 – 1,90 €</i></div>
+      <div class="row"><b>Sfogliatella riccia o frolla</b><span></span><i>1,50 €</i></div>
+      <div class="row"><b>Crostata di pasta frolla</b><span></span><i>2,00 €</i></div>
+    </div>
+    <div class="menu-list" id="pas">
+      <div class="row"><b>Mignon</b><span></span><i>0,70 €</i></div>
+      <div class="row"><b>Monoporzioni moderne</b><span></span><i>4,00 – 5,00 €</i></div>
+      <div class="row"><b>Paste di mandorla (vassoio)</b><span></span><i>12,00 €</i></div>
+      <div class="row"><b>Tortano napoletano</b><span></span><i>18,00 €</i></div>
+    </div>
+    <div class="menu-list" id="ape">
+      <div class="row"><b>Aperol Spritz</b><span></span><i>6,50 €</i></div>
+      <div class="row"><b>Spritz special</b><span></span><i>7,00 €</i></div>
+      <div class="row"><b>Tagliere salumi</b><span></span><i>10,00 €</i></div>
+      <div class="row"><b>Tagliere salumi e formaggi</b><span></span><i>15,00 €</i></div>
+    </div>
+    <p class="note">Prezzi dal menu attuale, da confermare con la pasticceria.</p>
+  </div>
+</section>
+
+<!-- TORTE -->
+<section class="cakes" id="torte">
+  <div class="wrap">
+    <div class="eyebrow">Torte su ordinazione</div>
+    <h2>Scegli la tua torta, noi la prepariamo.</h2>
+    <p class="lead">Ordina entro le 23:45 e ritira il giorno dopo in Via Roma, oppure ricevila a casa a Frattamaggiore e dintorni.</p>
+    <div class="cake-grid">
+      <div class="cake reveal"><div><h3>Pastiera Napoletana</h3><small>tradizione</small></div><div class="pr">da 24 €</div></div>
+      <div class="cake reveal"><div><h3>Torta Babà</h3><small>tradizione</small></div><div class="pr">da 22 €</div></div>
+      <div class="cake reveal"><div><h3>Caprese</h3><small>mandorle e cioccolato</small></div><div class="pr">da 25 €</div></div>
+      <div class="cake reveal"><div><h3>Tiramisù rivisitato</h3><small>moderna</small></div><div class="pr">da 23 €</div></div>
+      <div class="cake reveal"><div><h3>Pistacchio</h3><small>moderna</small></div><div class="pr">25 €</div></div>
+      <div class="cake reveal"><div><h3>Mimosa</h3><small>classica</small></div><div class="pr">27 €</div></div>
+      <div class="cake reveal"><div><h3>Vaniglia e Fondente</h3><small>moderna</small></div><div class="pr">da 23 €</div></div>
+      <div class="cake reveal"><div><h3>Lampone e Cioccolato</h3><small>moderna</small></div><div class="pr">24 €</div></div>
+      <div class="cake reveal"><div><h3>Lime</h3><small>fresca</small></div><div class="pr">da 23 €</div></div>
+    </div>
+    <div class="order">
+      <a class="btn btn-wine" href="https://api.whatsapp.com/send?phone=390818806045&text=Ciao!%20Vorrei%20ordinare%20una%20torta%3A%20gusto%20___%2C%20persone%20___%2C%20ritiro%20il%20___" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>
+        Ordina su WhatsApp
+      </a>
+      <a class="btn btn-ghost" href="tel:0818806045">Chiama 081 880 6045</a>
+    </div>
+  </div>
+</section>
+
+<!-- RICORRENZE -->
+<section class="season">
+  <div class="wrap">
+    <div class="box reveal">
+      <div>
+        <span class="pill">In arrivo · Natale</span>
+        <h2>Panettoni artigianali e Box regalo.</h2>
+        <p class="lead">Uno spazio unico per le ricorrenze: cambia con le stagioni (Natale, Carnevale, San Giuseppe, Pasqua, Festa della Mamma) e sparisce a fine periodo. Mai più offerte scadute sul sito.</p>
+        <p style="margin-top:1.4rem"><a class="btn btn-wine" href="#torte">Prenota il tuo panettone</a></p>
+      </div>
+      <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M50 170h100l-6-80H56z" fill="#c9a06a"/><path d="M56 90q44-70 88 0z" fill="#8a4f24"/><g fill="#f4e6d2"><circle cx="80" cy="75" r="4"/><circle cx="110" cy="62" r="4"/><circle cx="125" cy="80" r="4"/><circle cx="95" cy="82" r="3"/></g><path d="M50 120h100" stroke="#7a1f2b" stroke-width="10"/><path d="M100 115l-18-14m18 14l18-14" stroke="#7a1f2b" stroke-width="6" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Dicono di noi</div>
+    <h2>4,4 su Google, 763 recensioni.</h2>
+    <div class="rev-grid">
+      <div class="rev reveal"><b>★★★★★</b><q>Ambiente raffinato, pasticceria e bar perfetti, curato nei minimi dettagli.</q><small>Recensione Google</small></div>
+      <div class="rev reveal"><b>★★★★★</b><q>Tutto perfetto, dai dolci buonissimi al caffè, aperitivi e personale gentile.</q><small>Recensione Google</small></div>
+      <div class="rev reveal"><b>★★★★★</b><q>Personale e proprietari gentili e disponibili, buono il caffè e il cappuccino.</q><small>Recensione Google</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOVE -->
+<section class="where" id="dove" style="background:var(--paper)">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Dove siamo</div>
+      <h2>Ti aspettiamo in Via Roma.</h2>
+      <div class="info">
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><p><b>Via Roma, 151</b><span>80027 Frattamaggiore (NA)</span></p></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><p><b>Aperti dalle 05:00</b><span>Orari completi da confermare</span></p></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><p><b><a href="tel:0818806045">081 880 6045</a></b><span>info@barpasticceriadelcorso.it</span></p></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><p><b>Consegna a domicilio</b><span>Frattamaggiore e dintorni · ordini entro le 23:45</span></p></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><p><b><a href="https://www.instagram.com/barpasticceria_del_corso/" target="_blank" rel="noopener">@barpasticceria_del_corso</a></b><span>Seguici su Instagram</span></p></div>
+      </div>
+    </div>
+    <div class="map">
+      <iframe loading="lazy" title="Mappa" src="https://www.google.com/maps?q=Bar+Pasticceria+del+Corso,+Via+Roma+151,+Frattamaggiore&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Bar Pasticceria del Corso · Via Roma 151, Frattamaggiore · P.IVA 00295831218</div>
+    <div><a href="https://www.instagram.com/barpasticceria_del_corso/" target="_blank" rel="noopener">Instagram @barpasticceria_del_corso</a> · Concept di restyling · <a href="mailto:antimo.digiovanni@icloud.com">Antimo Di Giovanni</a></div>
+  </div>
+</footer>
+
+<a class="fab" href="https://api.whatsapp.com/send?phone=390818806045" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>
+</a>
+
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script>
+/* ---- Scroll animation torta ---- */
+(()=>{
+  const N=327, path=i=>`frames/${String(i+1).padStart(4,'0')}.webp`;
+  const cv=document.getElementById('cake'), ctx=cv.getContext('2d');
+  const imgs=new Array(N); let cur=0;
+  function load(i){ if(imgs[i]) return imgs[i]; const im=new Image(); im.decoding='async'; im.src=path(i); im.onload=()=>{ if(i===cur) draw(i); }; return imgs[i]=im; }
+  // prima il frame 0, poi ogni 8°, poi tutti (anteprima veloce, poi fluidità)
+  load(0); for(let i=0;i<N;i+=8) load(i); const rest=()=>{for(let i=0;i<N;i++) load(i)}; ('requestIdleCallback' in window)?requestIdleCallback(rest):setTimeout(rest,300);
+  function nearest(i){ for(let d=0;d<N;d++){ const a=imgs[i-d], b=imgs[i+d]; if(a&&a.complete&&a.naturalWidth) return a; if(b&&b.complete&&b.naturalWidth) return b; } }
+  function size(){ const r=Math.min(devicePixelRatio||1,2); cv.width=cv.clientWidth*r; cv.height=cv.clientHeight*r; draw(cur); }
+  function draw(i){
+    const im=nearest(i); if(!im) return;
+    const cw=cv.width, ch=cv.height, iw=im.naturalWidth, ih=im.naturalHeight;
+    const portrait=ch>cw*1.05;
+    let s,dx,dy,dw,dh;
+    if(portrait){
+      // telefono: 60% centrale del frame, bordi estesi
+      s=cw/(iw*0.6); dw=iw*s; dh=ih*s; dx=(cw-dw)/2; dy=(ch-dh)*0.58;
+      ctx.drawImage(im,0,0,iw,2,dx,0,dw,dy+2);                 // cielo rosa
+      ctx.drawImage(im,0,ih-2,2,2,0,dy+dh-2,cw,ch-dy-dh+2);    // piano bianco
+    } else {
+      // desktop: torta spostata a destra, lascia spazio al testo
+      s=Math.max(cw*0.8/iw, ch/ih); dw=iw*s; dh=ih*s; dy=(ch-dh)/2;
+      dx=cw*(cw<1500?0.68:0.64)-dw/2; if(dx+dw<cw) dx=cw-dw;
+      if(dx>0) ctx.drawImage(im,0,0,2,ih,0,dy,dx+2,dh);        // estende il bordo sinistro
+    }
+    ctx.drawImage(im,dx,dy,dw,dh);
+    if(portrait){ // sfuma la giunzione in basso
+      let c=[233,229,225]; try{c=ctx.getImageData(2,Math.min(ch-2,Math.round(dy+dh+4)),1,1).data}catch(e){} const col=`rgba(${c[0]},${c[1]},${c[2]},`;
+      const g=ctx.createLinearGradient(0,dy+dh*0.86,0,dy+dh); g.addColorStop(0,col+'0)'); g.addColorStop(1,col+'1)');
+      ctx.fillStyle=g; ctx.fillRect(0,dy+dh*0.86,cw,dh*0.14+2);
+    }
+  }
+  addEventListener('resize',size); size();
+
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!window.gsap||reduce){ cur=N-1; load(cur); draw(cur); document.querySelectorAll('.step').forEach(s=>s.style.opacity=s.classList.contains('s3')?1:0); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  const state={f:0};
+  const tl=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:'#hero',start:'top top',end:'+=400%',pin:true,scrub:0.6,anticipatePin:1}});
+  tl.to(state,{f:N-1,duration:10,onUpdate(){ const f=Math.round(state.f); if(f!==cur){cur=f;draw(f);} }},0)
+    .to('#prog',{scaleX:1,duration:10},0)
+    // clip1 = 0–2.6, clip2 = 2.6–6.3, clip3 = 6.3–10
+    .to('.s1',{opacity:0,y:-30,duration:.8,ease:'power1.in'},1.4)
+    .fromTo('.s2',{opacity:0,y:30},{opacity:1,y:0,duration:.8,ease:'power2.out'},3.2)
+    .to('.s2',{opacity:0,y:-30,duration:.8,ease:'power1.in'},5.6)
+    .fromTo('.s3',{opacity:0,y:30},{opacity:1,y:0,duration:.8,ease:'power2.out'},8.4)
+    .to({},{duration:.8});
+})();
+</script>
+<script>
+const h=document.getElementById('top');
+const onScroll=()=>h.classList.toggle('solid',scrollY>40);onScroll();addEventListener('scroll',onScroll,{passive:true});
+document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('links').classList.remove('open')));
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.menu-list').forEach(l=>l.classList.toggle('on',l.id===b.dataset.t));
+}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
